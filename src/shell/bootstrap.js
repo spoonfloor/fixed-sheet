@@ -2,8 +2,9 @@ import { mountSlots } from "./mountSlots.js";
 import { watchFixedFooter } from "./sheetLayout.js";
 
 async function bootstrapShell() {
+  document.body.classList.add("footer-only-debug");
+
   await mountSlots([
-    { selector: "#scroll-content", url: "./partials/scroll-content.html" },
     { selector: "#fixed-footer", url: "./partials/fixed-footer.html" },
   ]);
 
