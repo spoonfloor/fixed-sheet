@@ -7,36 +7,29 @@
       content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Life List" />
+    <meta name="apple-mobile-web-app-title" content="Fixed Sheet" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#ffffff" />
 
-    <title>Life List</title>
+    <title>Fixed Sheet</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/shell.css" />
+    <link rel="stylesheet" href="styles/content.css" />
   </head>
   <body>
-    <div id="viewer">
-      <img
-        id="screen"
-        src="assets/index.PNG"
-        alt="Life List — 7 species"
-        width="1179"
-        height="3433"
-        decoding="async"
-      />
-      <div class="viewer-overlays">
-        <img
-          class="viewer-overlay"
-          data-anchor="bc"
-          src="assets/global_bc.png"
-          alt="Identify, Explore, Life List, Settings"
-          width="1179"
-          height="250"
-          decoding="async"
-        />
-      </div>
+    <!--
+      App shell: scrollable main + fixed bottom footer.
+      Slot markup lives in partials/ — see README.md and AGENTS.md.
+    -->
+    <div id="app-shell" class="app-shell">
+      <!-- SLOT: SCROLL_CONTENT — edit partials/scroll-content.html -->
+      <main id="scroll-content" class="app scroll-content" aria-label="Main content"></main>
+
+      <!-- SLOT: FIXED_FOOTER — edit partials/fixed-footer.html -->
+      <footer id="fixed-footer" class="bottom-sheet" aria-label="Fixed footer"></footer>
     </div>
+
+    <script type="module" src="./src/shell/bootstrap.js"></script>
   </body>
 </html>
