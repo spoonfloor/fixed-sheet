@@ -68,7 +68,3 @@ body {
 .btn-block {
   width: 100%;
 }
-
-body.footer-only-debug #scroll-content {
-  display: none;
-}
