@@ -7,28 +7,29 @@
       content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover"
     />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Fixed Sheet" />
+    <meta name="apple-mobile-web-app-title" content="relationships" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#121212" />
 
-    <title>Fixed Sheet</title>
+    <title>relationships</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="icons/icon-180.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/shell.css" />
     <link rel="stylesheet" href="styles/content.css" />
   </head>
   <body>
-    <!--
-      App shell: scrollable main + fixed bottom footer.
-      Slot markup lives in partials/ — see README.md and AGENTS.md.
-    -->
     <div id="app-shell" class="app-shell">
-      <!-- SLOT: SCROLL_CONTENT — edit partials/scroll-content.html -->
       <main id="scroll-content" class="app scroll-content" aria-label="Main content"></main>
-
-      <!-- SLOT: FIXED_FOOTER — edit partials/fixed-footer.html -->
-      <footer id="fixed-footer" class="bottom-sheet" aria-label="Fixed footer"></footer>
+      <footer id="fixed-footer" class="bottom-sheet" aria-label="Game controls"></footer>
     </div>
+
+    <div id="glossary-tooltip" class="tooltip" style="display: none;"></div>
 
     <script type="module" src="./src/shell/bootstrap.js"></script>
   </body>
