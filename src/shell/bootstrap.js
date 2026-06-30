@@ -1,5 +1,5 @@
 import { mountSlots } from "./mountSlots.js";
-import { watchFixedFooter, syncFooterReserve } from "./sheetLayout.js";
+import { watchFixedFooter } from "./sheetLayout.js";
 
 async function bootstrapShell() {
   await mountSlots([
@@ -8,16 +8,12 @@ async function bootstrapShell() {
   ]);
 
   watchFixedFooter();
-
-  const { bootstrap } = await import("../main.js");
-  await bootstrap();
-  syncFooterReserve();
 }
 
 bootstrapShell().catch((err) => {
   console.error("Shell bootstrap failed:", err);
   document.body.insertAdjacentHTML(
     "beforeend",
-    `<p style="padding:24px;color:#900;font-family:system-ui,sans-serif">Failed to load app: ${err.message}. Serve this folder over HTTP (see README).</p>`
+    `<p style="padding:24px;color:#900;font-family:system-ui,sans-serif">Failed to load shell: ${err.message}. Serve this folder over HTTP (see README).</p>`
   );
 });
