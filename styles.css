@@ -2,70 +2,82 @@
   color-scheme: light;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+html {
+  background: #fff;
 }
 
 html,
 body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
+  padding: 0;
+  width: 100%;
+  min-height: 100dvh;
   background: #fff;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
+  overflow-x: hidden;
+  overflow-y: auto;
   touch-action: manipulation;
+  -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 
-#app {
-  position: fixed;
+#viewer {
+  position: relative;
+}
+
+#screen {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+}
+
+.viewer-overlays {
+  position: absolute;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100lvh;
-  overflow: hidden;
-  background: #fff;
+  pointer-events: none;
+  z-index: 1;
 }
 
-.scroll {
-  flex: 1;
-  min-height: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
-}
-
-.list-screen {
-  display: block;
-  width: 100%;
+.viewer-overlay {
+  position: absolute;
+  pointer-events: none;
+  max-width: 100%;
   height: auto;
-  margin: 0;
 }
 
-.chrome {
-  flex-shrink: 0;
-  margin: 0;
-  padding: 0;
-  padding-bottom: env(safe-area-inset-bottom);
-  background: #fff;
-}
-
-.tab-bar {
-  display: block;
+.viewer-overlay[data-anchor="bc"] {
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  margin: 0;
 }
 
-@supports not (height: 100lvh) {
-  #app {
-    height: 100vh;
+@media (max-aspect-ratio: 530/980) {
+  html,
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #fff;
+  }
+
+  #viewer {
+    width: 100%;
+  }
+
+  #screen {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .viewer-overlays {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }
 }

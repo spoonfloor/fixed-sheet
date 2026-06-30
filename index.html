@@ -17,27 +17,26 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="app">
-      <main class="scroll">
+    <div id="viewer">
+      <img
+        id="screen"
+        src="assets/index.PNG"
+        alt="Life List — 7 species"
+        width="1179"
+        height="3433"
+        decoding="async"
+      />
+      <div class="viewer-overlays">
         <img
-          class="list-screen"
-          src="assets/index.PNG"
-          alt="Life List — 7 species"
-          width="1179"
-          height="3433"
-          decoding="async"
-        />
-      </main>
-      <footer class="chrome">
-        <img
-          class="tab-bar"
+          class="viewer-overlay"
+          data-anchor="bc"
           src="assets/global_bc.png"
           alt="Identify, Explore, Life List, Settings"
           width="1179"
           height="250"
           decoding="async"
         />
-      </footer>
+      </div>
     </div>
   </body>
 </html>
